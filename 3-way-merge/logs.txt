@@ -1,0 +1,116 @@
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas (master)
+$ cd 3-way-merge
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge (master)
+$ source setup.sh
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git branch -a
+* master
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git branch greeting
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git chekout greeting
+git: 'chekout' is not a git command. See 'git --help'.
+
+The most similar command is
+        checkout
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git checkout greeting
+Switched to branch 'greeting'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (greeting)
+$ cat greeting.txt
+hello
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (greeting)
+$ echo "Hello World" > greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (greeting)
+$ git add . 
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (greeting)
+$ git commit -m "greetings added"
+[greeting b38d23b] greetings added
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (greeting)
+$ git log
+commit b38d23b82a8728586b45fcf26ca5fe05adcb0cc7 (HEAD -> greeting)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 14:05:08 2022 +0530
+
+    greetings added
+
+commit 72d2fcad1e7c4fb11cfea4adf028adbb5a90846d (master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 14:02:55 2022 +0530
+
+    Add content to greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (greeting)
+$ git switch master
+Switched to branch 'master'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ touch readme.md
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ echo "Information " > readme.md
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git add .
+warning: LF will be replaced by CRLF in readme.md.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git commit -m "readme updated"
+[master 5faa7fa] readme updated
+ 1 file changed, 1 insertion(+)
+ create mode 100644 readme.md
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git log --oneline --graph --all
+* 5faa7fa (HEAD -> master) readme updated
+| * b38d23b (greeting) greetings added
+|/
+* 72d2fca Add content to greeting.txt
+* ed82edf Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git diff greeting
+diff --git a/greeting.txt b/greeting.txt
+index 557db03..ce01362 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-Hello World
++hello
+diff --git a/readme.md b/readme.md
+new file mode 100644
+index 0000000..2cc18c0
+--- /dev/null
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git merge greeting
+Merge made by the 'ort' strategy.
+ greeting.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$ git log --oneline --graph --all
+*   bd89bf6 (HEAD -> master) Merge branch 'greeting'
+|\
+| * b38d23b (greeting) greetings added
+* | 5faa7fa readme updated
+|/
+* 72d2fca Add content to greeting.txt
+* ed82edf Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/3-way-merge/exercise (master)
+$
