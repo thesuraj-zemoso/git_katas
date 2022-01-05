@@ -1,0 +1,119 @@
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag (master)
+$ ls
+README.md  setup.ps1  setup.sh*
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/git-tag/exercise/.git/
+warning: LF will be replaced by CRLF in dummy.txt.
+The file will have its original line endings in your working directory
+[master (root-commit) f5649b2] dummy commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 dummy.txt
+warning: LF will be replaced by CRLF in dummy.txt.
+The file will have its original line endings in your working directory
+[master ef7f416] adding more content to dummy.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag
+dummy
+dummy2
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag hello
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag -d hello
+Deleted tag 'hello' (was ef7f416)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag dumy3
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git logs
+git: 'logs' is not a git command. See 'git --help'.
+
+The most similar command is
+        log
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git log
+commit ef7f416c8b3a75dc298575eb09b097d3640cca95 (HEAD -> master, tag: dumy3, tag: dummy2)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 19:25:07 2022 +0530
+
+    adding more content to dummy.txt
+
+commit f5649b20d8614eff354e69db487472e94da0d9b0 (tag: dummy)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 19:25:07 2022 +0530
+
+    dummy commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git log --oneline --graph --all
+* ef7f416 (HEAD -> master, tag: dumy3, tag: dummy2) adding more content to dummy.txt
+* f5649b2 (tag: dummy) dummy commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag -a v1.2 f5649b2 -m "new tag added"
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git log --oneline --graph --all
+* ef7f416 (HEAD -> master, tag: dumy3, tag: dummy2) adding more content to dummy.txt
+* f5649b2 (tag: v1.2, tag: dummy) dummy commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag --list "du" 
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag --list du
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag -d dummy2
+Deleted tag 'dummy2' (was 4348e44)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag v1.2
+fatal: tag 'v1.2' already exists
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag -d v1.2
+Deleted tag 'v1.2' (was 0c3a607)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag -a first_tag  f5649b2 -m "first_tag"
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag -a second_tag ef7f416 -m "second_tag"
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git log --oneline --graph --all
+* ef7f416 (HEAD -> master, tag: second_tag, tag: dumy3) adding more content to dummy.txt
+* f5649b2 (tag: first_tag, tag: dummy) dummy commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag -d dummy
+Deleted tag 'dummy' (was f5649b2)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag -d dummy3
+error: tag 'dummy3' not found.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git tag -d dumy3
+Deleted tag 'dumy3' (was ef7f416)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$ git log --oneline --graph --all
+* ef7f416 (HEAD -> master, tag: second_tag) adding more content to dummy.txt
+* f5649b2 (tag: first_tag) dummy commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/git-tag/exercise (master)
+$
