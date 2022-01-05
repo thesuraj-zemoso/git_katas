@@ -1,0 +1,110 @@
+cd basic-cleaning
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise/.git/
+warning: LF will be replaced by CRLF in README.txt.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/myapp.c.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in src/myapp.h.
+The file will have its original line endings in your working directory
+[master (root-commit) 6bedcdf] C code for my app
+ 3 files changed, 3 insertions(+)
+ create mode 100644 README.txt
+ create mode 100644 src/myapp.c
+ create mode 100644 src/myapp.h
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ ls
+obj/  README.txt  README.txt~  src/
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ ls -r
+src/  README.txt~  README.txt  obj/
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ ls -R
+.:
+obj/  README.txt  README.txt~  src/
+
+./obj:
+a.out  myapp.o  mylib.a  mylib.o
+
+./src:
+myapp.c  myapp.c~  myapp.h  mylib.c  oldfile.c~
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ git clean -n
+Would remove README.txt~
+Would remove src/myapp.c~
+Would remove src/mylib.c
+Would remove src/oldfile.c~
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ ls -R
+.:
+obj/  README.txt  README.txt~  src/
+
+./obj:
+a.out  myapp.o  mylib.a  mylib.o
+
+./src:
+myapp.c  myapp.c~  myapp.h  mylib.c  oldfile.c~
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ git add obj/mylib.c
+fatal: pathspec 'obj/mylib.c' did not match any files
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ git add src/mylib.c
+warning: LF will be replaced by CRLF in src/mylib.c.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        new file:   src/mylib.c
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        README.txt~
+        obj/
+        src/myapp.c~
+        src/oldfile.c~
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ git clean -n
+Would remove README.txt~
+Would remove src/myapp.c~
+Would remove src/oldfile.c~
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ git clean -n -d
+Would remove README.txt~
+Would remove obj/
+Would remove src/myapp.c~
+Would remove src/oldfile.c~
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ git clean -f -f
+Removing README.txt~
+Removing src/myapp.c~
+Removing src/oldfile.c~
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$ ls -R
+.:
+obj/  README.txt  src/
+
+./obj:
+a.out  myapp.o  mylib.a  mylib.o
+
+./src:
+myapp.c  myapp.h  mylib.c
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-cleaning/exercise (master)
+$
