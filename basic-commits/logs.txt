@@ -1,0 +1,151 @@
+$ git remote add origin https://github.com/thesuraj-zemoso/git_katas.git
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas (master)
+$ git remote -v
+origin  https://github.com/thesuraj-zemoso/git_katas.git (fetch)
+origin  https://github.com/thesuraj-zemoso/git_katas.git (push)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas (master)
+$ cd  basic-commits
+arning/git-katas/basic-commits/exercise/.git/
+                                                                      sic-commits (master)
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)                                         arning/git-katas/basic-commits/exercise/.git/
+$ git status
+On branch master                                                      sic-commits/exercise (master)
+
+No commits yet
+
+nothing to commit (create/copy files and use "git add" to track)      
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git log                                                             sic-commits/exercise (master)
+fatal: your current branch 'master' does not have any commits yet     
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)                                         sic-commits/exercise (master)
+$ touch file1.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file1.txt
+
+nothing added to commit but untracked files present (use "git add" to 
+track)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git add .
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   file1.txt
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git commit -m "first commit"
+[master (root-commit) a5bce2b] first commit
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 file1.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ echo "hello world" > file1.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")     
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git add .
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.txt
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git add .
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.txt
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ echo "....." >> file1.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file1.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file1.txt
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git add .
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git commit -m "added dots"
+$ git commit -m "added dots"
+[master 9c3b995] added dots
+ 1 file changed, 2 insertions(+)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git log
+commit 9c3b9952d0c41fa203a6957ef00197025abff39b (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 12:53:57 2022 +0530
+
+    added dots
+
+commit a5bce2b866241f82f6f58db97dd44ac3f68e6131
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 12:52:06 2022 +0530
+
+    first commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-commits/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
