@@ -1,0 +1,156 @@
+cd rebase-branch
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch (master)
+$ ls
+README.md  setup.ps1  setup.sh*
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/rebase-branch/exercise/.git/
+[master (root-commit) c45429c] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+[master e766656] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+Switched to a new branch 'uppercase'
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+[uppercase 253407d] Change greeting to uppercase
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+Switched to branch 'master'
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+[master 1cba9a1] Add readme
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (master)
+$ git branch -a
+* master
+  uppercase
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (master)
+$ git log
+commit 1cba9a1a802c056aab9a8c01f588141c137cb14b (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:08 2022 +0530
+
+    Add readme
+
+commit e766656fc870f680c734d9d8367a3a8e83f878ff
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:07 2022 +0530
+
+    Add content to greeting.txt
+
+commit c45429cea0582fcae0f3cce6fb55ec5da3e2cf87
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:07 2022 +0530
+
+    Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (master)
+$ git checkout uppercase
+Switched to branch 'uppercase'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (uppercase)
+$ git log
+commit 253407d92a42cdd9d1fafb3fe36e4d0bbff9ff66 (HEAD -> uppercase)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:08 2022 +0530
+
+    Change greeting to uppercase
+
+commit e766656fc870f680c734d9d8367a3a8e83f878ff
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:07 2022 +0530
+
+    Add content to greeting.txt
+
+commit c45429cea0582fcae0f3cce6fb55ec5da3e2cf87
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:07 2022 +0530
+
+    Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (uppercase)
+$ git rebase master
+Successfully rebased and updated refs/heads/uppercase.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (uppercase)
+$ git log
+commit 15a9869fdc58ecacd8018d437225d9b21e5c2856 (HEAD -> uppercase)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:08 2022 +0530
+
+    Change greeting to uppercase
+
+commit 1cba9a1a802c056aab9a8c01f588141c137cb14b (master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:08 2022 +0530
+
+    Add readme
+
+commit e766656fc870f680c734d9d8367a3a8e83f878ff
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:07 2022 +0530
+
+    Add content to greeting.txt
+
+commit c45429cea0582fcae0f3cce6fb55ec5da3e2cf87
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:07 2022 +0530
+
+    Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (uppercase)
+$ git log --oneline --graph --all
+* 15a9869 (HEAD -> uppercase) Change greeting to uppercase
+* 1cba9a1 (master) Add readme
+* e766656 Add content to greeting.txt
+* c45429c Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (uppercase)
+$ git switch master
+Switched to branch 'master'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (master)
+$ git log --oneline --graph --all
+* 15a9869 (uppercase) Change greeting to uppercase
+* 1cba9a1 (HEAD -> master) Add readme
+* e766656 Add content to greeting.txt
+* c45429c Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (master)
+$ git merge uppercase
+Updating 1cba9a1..15a9869
+Fast-forward
+ greeting.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/rebase-branch/exercise (master)
+$ git log
+commit 15a9869fdc58ecacd8018d437225d9b21e5c2856 (HEAD -> master, uppercase)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:08 2022 +0530
+
+    Change greeting to uppercase
+
+commit 1cba9a1a802c056aab9a8c01f588141c137cb14b
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:08 2022 +0530
+
+    Add readme
+
+commit e766656fc870f680c734d9d8367a3a8e83f878ff
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:01:07 2022 +0530
+
+    Add content to greeting.txt
