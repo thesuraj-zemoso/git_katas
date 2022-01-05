@@ -1,0 +1,136 @@
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas (master)
+$ cd basic-branching
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/basic-branching/exercise/.git/
+warning: LF will be replaced by CRLF in dummy.txt.
+The file will have its original line endings in your working directory
+[master (root-commit) 5fe22d7] dummy commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 dummy.txt
+Switched to a new branch 'second-branch'
+Switched to branch 'master'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git branch
+* master
+  second-branch
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git branch mybranch
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git branch
+* master
+  mybranch
+  second-branch
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git switch mybranch
+Switched to branch 'mybranch'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ git branch
+  master
+* mybranch
+  second-branch
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ git status
+On branch mybranch
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ touch file1.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ echo "Suraj Kumar" > file1.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ git add .
+warning: LF will be replaced by CRLF in file1.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ git commit "name added"
+error: pathspec 'name added' did not match any file(s) known to git
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ git commit -m "name added"
+[mybranch 8b14e80] name added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ git log --oneline --graph
+* 8b14e80 (HEAD -> mybranch) name added
+* 5fe22d7 (second-branch, master) dummy commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ git switch master
+Switched to branch 'master'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git log --oneline --graph
+* 5fe22d7 (HEAD -> master, second-branch) dummy commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ echo "Hello" > file2.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git log --oneline --graph
+* 5fe22d7 (HEAD -> master, second-branch) dummy commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git commit -m "hello added"
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        file2.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git add .
+warning: LF will be replaced by CRLF in file2.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git commit -m "hello added"
+[master fb397af] hello added
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git log --oneline --graph
+* fb397af (HEAD -> master) hello added
+* 5fe22d7 (second-branch) dummy commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (master)
+$ git switch mybranch
+Switched to branch 'mybranch'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ get diff mybranch master
+bash: get: command not found
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$ git diff mybranch master
+diff --git a/file1.txt b/file1.txt
+deleted file mode 100644
+index 78e6bf4..0000000
+--- a/file1.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-Suraj Kumar
+diff --git a/file2.txt b/file2.txt
+new file mode 100644
+index 0000000..e965047
+--- /dev/null
++++ b/file2.txt
+@@ -0,0 +1 @@
++Hello
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-branching/exercise (mybranch)
+$
