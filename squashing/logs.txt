@@ -1,0 +1,56 @@
+cd squashing
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/squashing (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/squashing/exercise/.git/
+[master (root-commit) 676dbfe] initial file
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 alsoafile.txt
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+[master f276475] Add relevant fact
+ 1 file changed, 1 insertion(+)
+pick f276475 Add relevant fact
+# This is a combination of 5 commits.
+ create mode 100644 file.txt
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+[master 06d6e92] Add more relevancy
+ 1 file changed, 1 insertion(+)
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+[master fa785d9] most relevant!
+ 1 file changed, 1 insertion(+)
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+[master 3ad5784] add prime directive
+ 1 file changed, 1 insertion(+)
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+[master 8294986] add the word!
+ 1 file changed, 1 insertion(+)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/squashing/exercise (master)
+$ git log --oneline --graph --all
+* 8294986 (HEAD -> master) add the word!
+* 3ad5784 add prime directive
+* fa785d9 most relevant!
+* 06d6e92 Add more relevancy
+* f276475 Add relevant fact
+* 676dbfe initial file
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/squashing/exercise (master)
+$ git rebase -i 676dbfe
+[detached HEAD a512596] information added
+ Date: Wed Jan 5 18:46:51 2022 +0530
+ 1 file changed, 5 insertions(+)
+ create mode 100644 file.txt
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/squashing/exercise (master)
+$ git log --oneline --graph --all
+* a512596 (HEAD -> master) information added
+* 676dbfe initial file
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/squashing/exercise (master)
+$
