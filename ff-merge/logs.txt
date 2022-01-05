@@ -1,0 +1,115 @@
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge (master)
+$ source setup.sh
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ git branch -a
+* master
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ ls
+greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ git branch feature/uppercase
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ switch feature/uppercase
+bash: switch: command not found
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ git switch feature/uppercase
+Switched to branch 'feature/uppercase'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ git status
+On branch feature/uppercase
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ cat greeting.txt
+hello
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ echo "HELLO" > greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ git branch
+* feature/uppercase
+  master
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ git log --oneline --graph --all
+* 54eac00 (HEAD -> feature/uppercase, master) Add content to greeting.txt
+* 39bb434 Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ git commit -m "capitalized"
+On branch feature/uppercase
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   greeting.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ git add .
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ git commit -m "capitalized"
+[feature/uppercase 04c7010] capitalized
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ git log --oneline --graph --all
+* 04c7010 (HEAD -> feature/uppercase) capitalized
+* 54eac00 (master) Add content to greeting.txt
+* 39bb434 Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (feature/uppercase)
+$ git switch master
+Switched to branch 'master'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ cat greeting.txt
+hello
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ git diff master feature/uppercase
+diff --git a/greeting.txt b/greeting.txt
+index ce01362..e427984 100644
+--- a/greeting.txt
++++ b/greeting.txt
+@@ -1 +1 @@
+-hello
++HELLO
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ git merge feature/uppercase
+Updating 54eac00..04c7010
+Fast-forward
+ greeting.txt | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ cat greeating.txt
+cat: greeating.txt: No such file or directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ cat greeting.txt
+HELLO
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ git branch -d feature/uppercase
+Deleted branch feature/uppercase (was 04c7010).
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/ff-merge/exercise (master)
+$ git branch -a
+* master
