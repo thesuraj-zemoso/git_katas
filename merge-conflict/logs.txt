@@ -1,0 +1,129 @@
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas (master)
+$ cd merge-conflict
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict (master)
+$ souce setup.sh
+bash: souce: command not found
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/merge-conflict/exercise/.git/
+[master (root-commit) 42bc6d4] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+[master 12421e2] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+Switched to a new branch 'merge-conflict-branch1'
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+[merge-conflict-branch1 7c0fcfa] add relevant fact
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+Switched to branch 'master'
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+[master db54a3c] add indispensable truth!
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master)
+$ git branch -a
+* master
+  merge-conflict-branch1
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master)
+$ git merge merge-conflict-branch1
+Auto-merging file.txt
+CONFLICT (add/add): Merge conflict in file.txt
+Automatic merge failed; fix conflicts and then commit the result.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master|MERGING)
+$ git diff merge-coonflict-branch1
+fatal: ambiguous argument 'merge-coonflict-branch1': unknown revision or path not in the working tree.
+Use '--' to separate paths from revisions, like this:
+'git <command> [<revision>...] -- [<file>...]'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master|MERGING)
+$ git diff merge-conflict-branch1
+diff --git a/file.txt b/file.txt
+index 721eb5a..e5b14f6 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1,5 @@
++<<<<<<< HEAD
++This is an indispensable truth!
++=======
+ This is a relevant fact
++>>>>>>> merge-conflict-branch1
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master|MERGING)
+$ git branch -a
+* master
+  merge-conflict-branch1
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master|MERGING)
+$ git merge merge-conflict-branch1
+error: Merging is not possible because you have unmerged files.
+hint: Fix them up in the work tree, and then use 'git add/rm <file>'
+hint: as appropriate to mark resolution and make a commit.
+fatal: Exiting because of an unresolved conflict.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both added:      file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master|MERGING)
+$ git add file.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master|MERGING)
+$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   file.txt
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master|MERGING)
+$ git commit
+[master 5afe940] Merge branch 'merge-conflict-branch1'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master)
+$ git branch --merged
+* master
+  merge-conflict-branch1
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master)
+$ git log --oneline --graph --all
+*   5afe940 (HEAD -> master) Merge branch 'merge-conflict-branch1'
+|\
+| * 7c0fcfa (merge-conflict-branch1) add relevant fact
+* | db54a3c add indispensable truth!
+|/
+* 12421e2 Add content to greeting.txt
+* 42bc6d4 Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-conflict/exercise (master)
+$
