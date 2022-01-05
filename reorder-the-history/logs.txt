@@ -1,0 +1,458 @@
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas (master)
+$ cd reorder-the-history
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history (master)
+$ ls
+README.md  setup.ps1  setup.sh*
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/reorder-the-history/remote/
+Cloning into 'exercise'...
+warning: You appear to have cloned an empty repository.
+done.
+warning: LF will be replaced by CRLF in foo.txt.
+The file will have its original line endings in your working directory
+[master (root-commit) c63d16e] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 foo.txt
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 225 bytes | 225.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/suraj/Documents/Zemoso Learning/git-katas/reorder-the-history/./remote
+ * [new branch]      master -> master
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 166 bytes | 166.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/suraj/Documents/Zemoso Learning/git-katas/reorder-the-history/./remote
+ * [new tag]         START -> START
+warning: LF will be replaced by CRLF in file1.
+The file will have its original line endings in your working directory
+[master 2cb167e] file1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1
+warning: LF will be replaced by CRLF in file9.
+The file will have its original line endings in your working directory
+[master aca5e38] file9
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file9
+warning: LF will be replaced by CRLF in file8.
+The file will have its original line endings in your working directory
+[master f35a3f3] file8
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file8
+warning: LF will be replaced by CRLF in file3.
+The file will have its original line endings in your working directory
+[master 573acc2] file3
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3
+warning: LF will be replaced by CRLF in file4.
+The file will have its original line endings in your working directory
+[master aa780f1] file4
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file4
+warning: LF will be replaced by CRLF in file5.
+The file will have its original line endings in your working directory
+[master 3d65f1e] file5
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file5
+warning: LF will be replaced by CRLF in file2.
+The file will have its original line endings in your working directory
+[master 46e26d0] file2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2
+warning: LF will be replaced by CRLF in file6.
+The file will have its original line endings in your working directory
+[master 2614e5f] file6
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file6
+warning: LF will be replaced by CRLF in file7.
+The file will have its original line endings in your working directory
+[master 8b79ff1] file7
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file7
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git log --oneline --graph --all
+* 8b79ff1 (HEAD -> master) file7
+* 2614e5f file6
+* 46e26d0 file2
+* 3d65f1e file5
+* aa780f1 file4
+* 573acc2 file3
+* f35a3f3 file8
+* aca5e38 file9
+* 2cb167e file1
+* c63d16e (tag: START, origin/master) Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git log
+commit 8b79ff1940f6cc71141c7cc5f8e6d0e362f0b04e (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:21 2022 +0530
+
+    file7
+
+commit 2614e5f0eb19d77a12e3644fe1f571ffe41b5edf
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:21 2022 +0530
+
+    file6
+
+commit 46e26d05be7b21560f1c8b5d2f7fe733d68f39e3
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:20 2022 +0530
+
+    file2
+
+commit 3d65f1e02ec70823146e1a187cc011b7084bc8b6
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:20 2022 +0530
+
+    file5
+
+commit aa780f118ff373d7d5864140dcbc05e2bfde44b8
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:20 2022 +0530
+
+    file4
+
+commit 573acc288a88d8905f749d64d606beb10040f949
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:20 2022 +0530
+
+    file3
+
+commit f35a3f38005701aad948ca1c3acae341829de0b9
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:20 2022 +0530
+
+    file8
+
+commit aca5e38228ddd98f3a884f4a09038bb8b28150b1
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:19 2022 +0530
+
+    file9
+
+commit 2cb167e825945e5d55191e5cc4090e197291880f
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:19 2022 +0530
+
+    file1
+
+commit c63d16e18d5cd72b8432e12091b680397ba7c458 (tag: START, origin/master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:34:18 2022 +0530
+
+    Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git reflog
+8b79ff1 (HEAD -> master) HEAD@{0}: commit: file7
+2614e5f HEAD@{1}: commit: file6
+46e26d0 HEAD@{2}: commit: file2
+3d65f1e HEAD@{3}: commit: file5
+aa780f1 HEAD@{4}: commit: file4
+573acc2 HEAD@{5}: commit: file3
+f35a3f3 HEAD@{6}: commit: file8
+aca5e38 HEAD@{7}: commit: file9
+2cb167e HEAD@{8}: commit: file1
+c63d16e (tag: START, origin/master) HEAD@{9}: commit (initial): Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git reflog
+8b79ff1 (HEAD -> master) HEAD@{0}: rebase (finish): returning to refs/heads/master
+8b79ff1 (HEAD -> master) HEAD@{1}: rebase (start): checkout refs/remotes/origin/master
+8b79ff1 (HEAD -> master) HEAD@{2}: commit: file7
+2614e5f HEAD@{3}: commit: file6
+46e26d0 HEAD@{4}: commit: file2
+3d65f1e HEAD@{5}: commit: file5
+aa780f1 HEAD@{6}: commit: file4
+573acc2 HEAD@{7}: commit: file3
+f35a3f3 HEAD@{8}: commit: file8
+aca5e38 HEAD@{9}: commit: file9
+2cb167e HEAD@{10}: commit: file1
+c63d16e (tag: START, origin/master) HEAD@{11}: commit (initial): Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ cd ..
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history (master)
+$ cd ..
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas (master)
+$ cd reorder-the-history
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/reorder-the-history/remote/
+Cloning into 'exercise'...
+warning: You appear to have cloned an empty repository.
+done.
+warning: LF will be replaced by CRLF in foo.txt.
+The file will have its original line endings in your working directory
+[master (root-commit) 1438612] Initial commit
+ 1 file changed, 1 insertion(+)
+ create mode 100644 foo.txt
+Enumerating objects: 3, done.
+Counting objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 225 bytes | 225.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0        
+To C:/Users/suraj/Documents/Zemoso Learning/git-katas/reorder-the-history/./remote
+ * [new branch]      master -> master
+Enumerating objects: 1, done.
+Counting objects: 100% (1/1), done.
+Writing objects: 100% (1/1), 167 bytes | 167.00 KiB/s, done.
+Total 1 (delta 0), reused 0 (delta 0), pack-reused 0        
+To C:/Users/suraj/Documents/Zemoso Learning/git-katas/reorder-the-history/./remote
+ * [new tag]         START -> START
+warning: LF will be replaced by CRLF in file1.
+The file will have its original line endings in your working directory
+[master d9a7dc9] file1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file1
+warning: LF will be replaced by CRLF in file9.
+The file will have its original line endings in your working directory
+[master 57b2b54] file9
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file9
+warning: LF will be replaced by CRLF in file8.
+The file will have its original line endings in your working directory
+[master 17a369b] file8
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file8
+warning: LF will be replaced by CRLF in file3.
+The file will have its original line endings in your working directory
+[master d7c1df0] file3
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3
+warning: LF will be replaced by CRLF in file4.
+The file will have its original line endings in your working directory
+[master 3bb2e88] file4
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file4
+warning: LF will be replaced by CRLF in file5.
+The file will have its original line endings in your working directory
+[master 2e4ac98] file5
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file5
+warning: LF will be replaced by CRLF in file2.
+The file will have its original line endings in your working directory
+[master 554b51f] file2
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2
+warning: LF will be replaced by CRLF in file6.
+The file will have its original line endings in your working directory
+[master bac5947] file6
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file6
+warning: LF will be replaced by CRLF in file7.
+The file will have its original line endings in your working directory
+[master 02f0617] file7
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file7
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git reflog
+02f0617 (HEAD -> master) HEAD@{0}: commit: file7
+bac5947 HEAD@{1}: commit: file6
+554b51f HEAD@{2}: commit: file2
+2e4ac98 HEAD@{3}: commit: file5
+3bb2e88 HEAD@{4}: commit: file4
+d7c1df0 HEAD@{5}: commit: file3
+17a369b HEAD@{6}: commit: file8
+57b2b54 HEAD@{7}: commit: file9
+d9a7dc9 HEAD@{8}: commit: file1
+1438612 (tag: START, origin/master) HEAD@{9}: commit (initial): Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i d9a7dc9
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise/.git/
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ ls
+file1  file2  file3  file4  file5  file6  file7  file8  file9  foo.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git log --oneline --graph --all
+* 02f0617 (HEAD -> master) file7
+* bac5947 file6
+* 554b51f file2
+* 2e4ac98 file5
+* 3bb2e88 file4
+* d7c1df0 file3
+* 17a369b file8
+* 57b2b54 file9
+* d9a7dc9 file1
+* 1438612 (tag: START, origin/master) Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git init
+Reinitialized existing Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise/.git/ 
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git log --oneline --graph --all
+* 02f0617 (HEAD -> master) file7
+* bac5947 file6
+* 554b51f file2
+* 2e4ac98 file5
+* 3bb2e88 file4
+reword 57b2b54 file9
+file2
+* d7c1df0 file3
+* 17a369b file8
+* 57b2b54 file9
+* d9a7dc9 file1
+* 1438612 (tag: START, origin/master) Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ ls
+pick 677d5ea file2
+file3
+file1  file2  file3  file4  file5  file6  file7  file8  file9  foo.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i d9a7dc9
+file4
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git log --oneline --graph --all
+file5
+* 02f0617 (HEAD -> master) file7
+* bac5947 file6
+* 554b51f file2
+* 2e4ac98 file5
+file6
+* 3bb2e88 file4
+* d7c1df0 file3
+* 17a369b file8
+* 57b2b54 file9
+* d9a7dc9 file1
+* 1438612 (tag: START, origin/master) Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i d9a7dc9
+[detached HEAD 677d5ea] file2
+ Date: Wed Jan 5 16:58:02 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file9
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i d9a7dc9
+[detached HEAD ee2bdc6] file3
+ Date: Wed Jan 5 16:58:02 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file8
+pick 677d5ea file2
+pick ee2bdc6 file3
+pick c74e093 file4
+[detached HEAD c74e093] file4
+ Date: Wed Jan 5 16:58:02 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file3
+[detached HEAD 61f6d0c] file5
+ Date: Wed Jan 5 16:58:02 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file4
+[detached HEAD 3457dc2] file6
+ Date: Wed Jan 5 16:58:02 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file5
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git log --oneline --graph --all
+* 099a3a8 (HEAD -> master) file7
+reword e4ca4cc file6
+reword 099a3a8 file7
+
+* e4ca4cc file6
+* 15d2e1e file2
+* 3457dc2 file6
+* 61f6d0c file5
+reword 15d2e1e file2
+file7
+* c74e093 file4
+* ee2bdc6 file3
+* 677d5ea file2
+* d9a7dc9 file1
+file8
+* 1438612 (tag: START, origin/master) Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i d9a7dc9
+file9
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git log --oneline --graph --all
+* 099a3a8 (HEAD -> master) file7
+* e4ca4cc file6
+* 15d2e1e file2
+* 3457dc2 file6
+* 61f6d0c file5
+* c74e093 file4
+* ee2bdc6 file3
+* 677d5ea file2
+* d9a7dc9 file1
+* 1438612 (tag: START, origin/master) Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i 15d2e1e
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git rebase -i 3457dc2
+[detached HEAD 32e0879] file7
+ Date: Wed Jan 5 16:58:03 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file2
+[detached HEAD a1968d4] file8
+ Date: Wed Jan 5 16:58:03 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file6
+[detached HEAD 35f65eb] file9
+ Date: Wed Jan 5 16:58:03 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file7
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$ git log --oneline --graph --all
+* 35f65eb (HEAD -> master) file9
+* a1968d4 file8
+* 32e0879 file7
+* 3457dc2 file6
+* 61f6d0c file5
+* c74e093 file4
+* ee2bdc6 file3
+* 677d5ea file2
+* d9a7dc9 file1
+* 1438612 (tag: START, origin/master) Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/reorder-the-history/exercise (master)
+$
