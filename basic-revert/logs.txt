@@ -1,0 +1,270 @@
+cd basic-revert
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/basic-revert/exercise/.git/
+[master (root-commit) 0f38dff] Add file greeting.txt
+ 1 file changed, 0 insertions(+), 0 deletions(-)
+ create mode 100644 greeting.txt
+warning: LF will be replaced by CRLF in credentials.txt.
+The file will have its original line endings in your working directory
+[master af0df88] Add credentials to repository
+ 1 file changed, 1 insertion(+)
+ create mode 100644 credentials.txt
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+[master e5dd497] Add content to greeting.txt
+ 1 file changed, 1 insertion(+)
+warning: LF will be replaced by CRLF in greeting.txt.
+The file will have its original line endings in your working directory
+[master df501d4] Overwrite greeting.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git logs
+git: 'logs' is not a git command. See 'git --help'.
+
+The most similar command is
+        log
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git log
+commit df501d477de90352a239ba0c889ac1fc995d82f9 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:19:40 2022 +0530
+
+    Overwrite greeting.txt
+
+commit e5dd49720eed060c0f938b5faf55167b35ec5a61
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:19:40 2022 +0530
+
+    Add content to greeting.txt
+
+commit af0df88ca8c8c1b0919ad688a56ec2404581f16e
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:19:39 2022 +0530
+
+    Add credentials to repository
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ ls
+credentials.txt  greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git log --decorate --oneline
+df501d4 (HEAD -> master) Overwrite greeting.txt
+e5dd497 Add content to greeting.txt
+af0df88 Add credentials to repository
+0f38dff Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ cat greeting.txt
+This should have been appended to the original content, rather than overwriting it.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git revert
+usage: git revert [<options>] <commit-ish>...
+   or: git revert <subcommand>
+
+    --quit                end revert or cherry-pick sequence
+    --continue            resume revert or cherry-pick sequence
+    --abort               cancel revert or cherry-pick sequence
+    --skip                skip current commit and continue
+    --cleanup <mode>      how to strip spaces and #comments from message
+    -n, --no-commit       don't automatically commit
+    -e, --edit            edit the commit message
+    -s, --signoff         add a Signed-off-by trailer
+    -m, --mainline <parent-number>
+                          select mainline parent
+    --rerere-autoupdate   update the index with reused conflict resolution if possible
+    --strategy <strategy>
+                          merge strategy
+    -X, --strategy-option <option>
+                          option for merge strategy
+    -S, --gpg-sign[=<key-id>]
+                          GPG sign commit
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git revert df501d4
+[master 2110192] Revert "Overwrite greeting.txt"
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git log
+commit 2110192e39b0730e8f3b374dbfa3e21ad8023954 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:21:46 2022 +0530
+
+    Revert "Overwrite greeting.txt"
+
+    This reverts commit df501d477de90352a239ba0c889ac1fc995d82f9.
+
+commit df501d477de90352a239ba0c889ac1fc995d82f9
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:19:40 2022 +0530
+
+    Overwrite greeting.txt
+
+commit e5dd49720eed060c0f938b5faf55167b35ec5a61
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:19:40 2022 +0530
+
+    Add content to greeting.txt
+
+commit af0df88ca8c8c1b0919ad688a56ec2404581f16e
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:19:39 2022 +0530
+
+    Add credentials to repository
+
+commit 0f38dffb188019fbc6591efa31c0a18dd3269514
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:19:39 2022 +0530
+
+    Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ cat greeting.txt
+Original file content
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git log --decorate --oneline
+2110192 (HEAD -> master) Revert "Overwrite greeting.txt"
+df501d4 Overwrite greeting.txt
+e5dd497 Add content to greeting.txt
+af0df88 Add credentials to repository
+0f38dff Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ ls
+credentials.txt  greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git log --decorate --oneline
+2110192 (HEAD -> master) Revert "Overwrite greeting.txt"
+df501d4 Overwrite greeting.txt
+e5dd497 Add content to greeting.txt
+af0df88 Add credentials to repository
+0f38dff Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git revert af0df88 "revert credential"
+fatal: bad revision 'revert credential'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git revert -n af0df88
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master|REVERTING)
+$ git log --decorate --oneline
+2110192 (HEAD -> master) Revert "Overwrite greeting.txt"
+df501d4 Overwrite greeting.txt
+e5dd497 Add content to greeting.txt
+af0df88 Add credentials to repository
+0f38dff Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master|REVERTING)
+$ git revert af0df88 
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master|REVERTING)
+$ git revert af0df88
+error: your local changes would be overwritten by revert.
+hint: commit your changes or stash them to proceed.
+fatal: revert failed
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master|REVERTING)
+$ git status
+On branch master
+You are currently reverting commit af0df88.
+  (all conflicts fixed: run "git revert --continue")
+  (use "git revert --skip" to skip this patch)
+  (use "git revert --abort" to cancel the revert operation)
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        deleted:    credentials.txt
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master|REVERTING)
+$ git revert --continue
+[master e9bc355] Revert "Add credentials to repository"
+ 1 file changed, 1 deletion(-)
+ delete mode 100644 credentials.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git log --decorate --oneline
+e9bc355 (HEAD -> master) Revert "Add credentials to repository"
+2110192 Revert "Overwrite greeting.txt"
+df501d4 Overwrite greeting.txt
+e5dd497 Add content to greeting.txt
+af0df88 Add credentials to repository
+0f38dff Add file greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ ls
+greeting.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git show
+commit e9bc35574e0431fea2b68c72c33518cc13fdcb48 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:26:48 2022 +0530
+
+    Revert "Add credentials to repository"
+
+    This reverts commit af0df88ca8c8c1b0919ad688a56ec2404581f16e.
+
+diff --git a/credentials.txt b/credentials.txt
+deleted file mode 100644
+index 8995708..0000000
+--- a/credentials.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-supersecretpassword
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git show af0df88
+commit af0df88ca8c8c1b0919ad688a56ec2404581f16e
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:19:39 2022 +0530
+
+    Add credentials to repository
+
+diff --git a/credentials.txt b/credentials.txt
+new file mode 100644
+index 0000000..8995708
+--- /dev/null
++++ b/credentials.txt
+@@ -0,0 +1 @@
++supersecretpassword
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$ git show e9bc355
+commit e9bc35574e0431fea2b68c72c33518cc13fdcb48 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 15:26:48 2022 +0530
+
+    Revert "Add credentials to repository"
+
+    This reverts commit af0df88ca8c8c1b0919ad688a56ec2404581f16e.
+
+diff --git a/credentials.txt b/credentials.txt
+deleted file mode 100644
+index 8995708..0000000
+--- a/credentials.txt
++++ /dev/null
+@@ -1 +0,0 @@
+-supersecretpassword
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-revert/exercise (master)
+$
