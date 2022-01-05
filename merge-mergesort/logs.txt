@@ -1,0 +1,75 @@
+cd merge-mergesort
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort (master)
+$ ls
+base.py  lefty.py  README.md  righty.py  setup.ps1  setup.sh*
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/merge-mergesort/exercise/.git/
+warning: LF will be replaced by CRLF in mergesort.py.
+The file will have its original line endings in your working directory
+[master (root-commit) 2bd97d4] Fake it till you make it - Faking mergesort using python .sort() method
+ 1 file changed, 5 insertions(+)
+ create mode 100644 mergesort.py
+Switched to a new branch 'Mergesort-Impl'
+warning: LF will be replaced by CRLF in mergesort.py.
+The file will have its original line endings in your working directory
+[Mergesort-Impl 123a308] Mergesort implemented on feature branch
+ 1 file changed, 45 insertions(+), 5 deletions(-)
+ rewrite mergesort.py (98%)
+Switched to branch 'master'
+warning: LF will be replaced by CRLF in mergesort.py.
+The file will have its original line endings in your working directory
+[master bce7cd9] Mergesort implemented on master
+ 1 file changed, 45 insertions(+), 5 deletions(-)
+ rewrite mergesort.py (98%)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort/exercise (master)
+$ git branch
+  Mergesort-Impl
+* master
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort/exercise (master)
+$ git merge mergesort-impl
+Auto-merging mergesort.py
+CONFLICT (content): Merge conflict in mergesort.py
+Automatic merge failed; fix conflicts and then commit the result.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort/exercise (master|MERGING)
+$ git status
+On branch master
+You have unmerged paths.
+  (fix conflicts and run "git commit")        
+  (use "git merge --abort" to abort the merge)
+
+Unmerged paths:
+  (use "git add <file>..." to mark resolution)
+        both modified:   mergesort.py
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort/exercise (master|MERGING)
+$ git add mergesort.py
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort/exercise (master|MERGING)
+$ git status
+On branch master
+All conflicts fixed but you are still merging.
+  (use "git commit" to conclude merge)
+
+Changes to be committed:
+        modified:   mergesort.py
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort/exercise (master|MERGING)
+$ git commit -m "mergesort solved"
+[master ab491d4] mergesort solved
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/merge-mergesort/exercise (master)
+$
