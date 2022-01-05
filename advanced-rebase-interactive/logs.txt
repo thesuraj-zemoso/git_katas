@@ -1,0 +1,137 @@
+cd advanced-rebase-interactive
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/advanced-rebase-interactive (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/advanced-rebase-interactive/remote/
+Cloning into 'exercise'...
+warning: You appear to have cloned an empty repository.
+done.
+[master (root-commit) d75126e] Initial commit
+Enumerating objects: 2, done.
+Counting objects: 100% (2/2), done.
+Writing objects: 100% (2/2), 171 bytes | 171.00 KiB/s, done.
+Total 2 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/suraj/Documents/Zemoso Learning/git-katas/advanced-rebase-interactive/./remote
+ * [new branch]      master -> master
+Total 0 (delta 0), reused 0 (delta 0), pack-reused 0
+To C:/Users/suraj/Documents/Zemoso Learning/git-katas/advanced-rebase-interactive/./remote
+ * [new tag]         v0.0 -> v0.0
+warning: LF will be replaced by CRLF in hello.code.
+The file will have its original line endings in your working directory
+[master 30b7b13] Helo Volrd feature
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.code
+warning: LF will be replaced by CRLF in hello.code.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in other.code.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in hello.code.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in other.code.
+The file will have its original line endings in your working directory
+[master 70f8918] Finished HW feature
+ 2 files changed, 2 insertions(+), 1 deletion(-)
+ create mode 100644 other.code
+warning: LF will be replaced by CRLF in hello.code.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in other.code.
+The file will have its original line endings in your working directory
+[master be020a1] Really made the thingy done
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+warning: LF will be replaced by CRLF in hello.code.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in other.code.
+The file will have its original line endings in your working directory
+[master 88e87be] debugging
+ 1 file changed, 1 insertion(+)
+warning: LF will be replaced by CRLF in private.secret.
+The file will have its original line endings in your working directory
+[master 6bcb04c] important secret
+ 1 file changed, 1 insertion(+)
+ create mode 100644 private.secret
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+[master 63fbe9e] Add doc - step 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in private.secret.
+The file will have its original line endings in your working directory
+[master e4a32fe] Add doc - step 2
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in private.secret.
+The file will have its original line endings in your working directory
+[master ebf0d67] Add doc - step 3
+ 1 file changed, 2 insertions(+)
+warning: LF will be replaced by CRLF in hello.test.
+reword 30b7b13 Helo Volrd feature
+Helo World feature
+The file will have its original line endings in your working directory
+[master 8f027c7] Test for feature hello world
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.test
+# This is a combination of 4 commits.
+warning: LF will be replaced by CRLF in README.md.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in hello.test.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in private.secret.
+The file will have its original line endings in your working directory
+Adding document
+[master 68e99e1] I forgot a semicolon
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/advanced-rebase-interactive/exercise (master)
+# This is a combination of 3 commits.
+$ git log --oneline --graph --all
+* 68e99e1 (HEAD -> master) I forgot a semicolon
+* 8f027c7 Test for feature hello world
+* ebf0d67 Add doc - step 3
+# This is a combination of 2 commits.
+* e4a32fe Add doc - step 2
+* 63fbe9e Add doc - step 1
+* 6bcb04c important secret
+* 88e87be debugging
+* be020a1 Really made the thingy done
+* 70f8918 Finished HW feature
+* 30b7b13 Helo Volrd feature
+* d75126e (tag: v0.0, origin/master) Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/advanced-rebase-interactive/exercise (master)
+$ git rebase --interactive v0.0
+[detached HEAD ffff514] Helo World feature
+ Date: Wed Jan 5 18:52:49 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.code
+[detached HEAD 409329d] Helo World feature
+ Date: Wed Jan 5 18:52:49 2022 +0530
+ 3 files changed, 3 insertions(+)
+ create mode 100644 hello.code
+ create mode 100644 other.code
+ create mode 100644 private.secret
+[detached HEAD ffa1322] Adding document
+ Date: Wed Jan 5 18:52:50 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 README.md
+[detached HEAD cf2a0aa] Adding document
+ Date: Wed Jan 5 18:52:50 2022 +0530
+ 1 file changed, 3 insertions(+)
+ create mode 100644 README.md
+[detached HEAD 0a4a352] Test for feature hello world
+ Date: Wed Jan 5 18:52:50 2022 +0530
+ 1 file changed, 1 insertion(+)
+ create mode 100644 hello.test
+Successfully rebased and updated refs/heads/master.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/advanced-rebase-interactive/exercise (master)
+$ git log --oneline --graph --all
+* 0a4a352 (HEAD -> master) Test for feature hello world
+* cf2a0aa Adding document
+* 409329d Helo World feature
+* d75126e (tag: v0.0, origin/master) Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/advanced-rebase-interactive/exercise (master)
+$
