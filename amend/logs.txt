@@ -1,0 +1,174 @@
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas (master)
+$ cd amend
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/amend/exercise/.git/
+warning: LF will be replaced by CRLF in foo.txt.
+The file will have its original line endings in your working directory
+[master (root-commit) 34e77c6] feature 73
+ 1 file changed, 1 insertion(+)
+ create mode 100644 foo.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ ls
+bar.txt  foo.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git log
+commit 34e77c612168562c230453173262a1e99d0714a5 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:20:01 2022 +0530
+
+    feature 73
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        bar.txt
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git log -p
+commit 34e77c612168562c230453173262a1e99d0714a5 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:20:01 2022 +0530
+
+    feature 73
+
+diff --git a/foo.txt b/foo.txt
+new file mode 100644
+index 0000000..257cc56
+--- /dev/null
++++ b/foo.txt
+@@ -0,0 +1 @@
++foo
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git log --oneline --graph --all
+* 34e77c6 (HEAD -> master) feature 73
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git add bar.txt
+warning: LF will be replaced by CRLF in bar.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git commit --amend
+[master 6fdbf25] feature 73
+ Date: Wed Jan 5 16:20:01 2022 +0530
+ 2 files changed, 2 insertions(+)
+ create mode 100644 bar.txt
+ create mode 100644 foo.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git log -p
+commit 6fdbf256d1dd8e9e58726b64c46e6cac2e6a55dc (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:20:01 2022 +0530
+
+    feature 73
+
+diff --git a/bar.txt b/bar.txt
+new file mode 100644
+index 0000000..5716ca5
+--- /dev/null
++++ b/bar.txt
+@@ -0,0 +1 @@
++bar
+diff --git a/foo.txt b/foo.txt
+new file mode 100644
+index 0000000..257cc56
+--- /dev/null
++++ b/foo.txt
+@@ -0,0 +1 @@
++foo
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git log --oneline --graph --all
+* 6fdbf25 (HEAD -> master) feature 73
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git log --oneline --graph --all
+* 6fdbf25 (HEAD -> master) feature 73
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git log -p
+feature 731
+
+# Please enter the commit message for your changes. Lines starting
+# with '#' will be ignored, and an empty message aborts the commit.
+
+commit 6fdbf256d1dd8e9e58726b64c46e6cac2e6a55dc (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:20:01 2022 +0530
+
+feature 731111
+    feature 73
+
+diff --git a/bar.txt b/bar.txt
+new file mode 100644
+index 0000000..5716ca5
+--- /dev/null
++++ b/bar.txt
+@@ -0,0 +1 @@
++bar
+diff --git a/foo.txt b/foo.txt
+new file mode 100644
+index 0000000..257cc56
+--- /dev/null
++++ b/foo.txt
+@@ -0,0 +1 @@
++foo
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git commit --amend
+Aborting commit due to empty commit message.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git commit --amend
+[master e74eb5a] feature 731111
+ Date: Wed Jan 5 16:20:01 2022 +0530
+ 2 files changed, 2 insertions(+)
+ create mode 100644 bar.txt
+ create mode 100644 foo.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git log -p
+commit e74eb5a98d9b21450d01555847c50f35769ffe31 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 16:20:01 2022 +0530
+
+    feature 731111
+
+diff --git a/bar.txt b/bar.txt
+new file mode 100644
+index 0000000..5716ca5
+--- /dev/null
++++ b/bar.txt
+@@ -0,0 +1 @@
++bar
+diff --git a/foo.txt b/foo.txt
+new file mode 100644
+index 0000000..257cc56
+--- /dev/null
++++ b/foo.txt
+@@ -0,0 +1 @@
++foo
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ git log --oneline --graph --all
+* e74eb5a (HEAD -> master) feature 731111
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend/exercise (master)
+$ cd ..
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/amend (master)
