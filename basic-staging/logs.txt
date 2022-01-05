@@ -1,0 +1,239 @@
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas (master)
+$ cd basic-staging
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        ../.gitattributes
+        ../.gitignore
+        ../3-way-merge/
+        ../LICENSE.txt
+        ../Overview.md
+        ../README.md
+        ../SHELL-BASICS.md
+        ../advanced-rebase-interactive/
+        ../alias/
+        ../amend/
+        ../bad-commit/
+        ../basic-branching/
+        ../basic-cherry-pick/
+        ../basic-cleaning/
+        ../basic-revert/
+        ./
+        ../basic-stashing/
+        ../bisect/
+        ../change-author/
+        ../commit-on-wrong-branch-2/
+        ../commit-on-wrong-branch/
+        ../configure-git/
+        ../detached-head/
+        ../docs/
+        ../ff-merge/
+        ../git-attributes/
+        ../git-tag/
+        ../ignore/
+        ../images/
+        ../investigation/
+        ../master-based-workflow/
+        ../merge-conflict/
+        ../merge-driver/
+        ../merge-mergesort/
+        ../objects/
+        ../pre-push/
+        ../rebase-branch/
+        ../rebase-exec/
+        ../rebase-interactive-autosquash/
+        ../reorder-the-history/
+        ../reset/
+        ../restore/
+        ../reverted-merge/
+        ../save-my-commit/
+        ../squashing/
+        ../submodules/
+        ../subtree/
+        ../test-all.sh
+        ../test.ps1
+        ../test.sh
+        ../testzsh.sh
+        ../utils/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/basic-staging/exercise/.git/
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+[master (root-commit) 417ea3d] 1
+ 1 file changed, 1 insertion(+)
+ create mode 100644 file.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ cat file.txt
+1
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ echo 2 > file.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git diff
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+diff --git a/file.txt b/file.txt
+index d00491f..0cfbf08 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1 @@
+-1
++2
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git diff --staged
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git add file.txt
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git diff
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git diff --staged
+diff --git a/file.txt b/file.txt
+index d00491f..0cfbf08 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1 @@
+-1
++2
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ echo 3 > file.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git diff
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+diff --git a/file.txt b/file.txt
+index 0cfbf08..00750ed 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1 @@
+-2
++3
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git diff --staged
+diff --git a/file.txt b/file.txt
+index d00491f..0cfbf08 100644
+--- a/file.txt
++++ b/file.txt
+@@ -1 +1 @@
+-1
++2
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git restore --staged file.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git add .
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git commit -m "first commit"
+[master 3ee4417] first commit
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git log
+commit 3ee4417e53a8861cc8e8127e5fbb2c0ad1f99f69 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 13:06:21 2022 +0530
+
+    first commit
+
+commit 417ea3d3d75c0ae0cdfdb75550938ec226b41539
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Wed Jan 5 13:03:07 2022 +0530
+
+    1
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ echo 4 > file.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ cat file.txt
+4
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git status
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git restore file.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ cat file.txt
+3
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git push remote master
+fatal: 'remote' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git push master
+fatal: 'master' does not appear to be a git repository
+fatal: Could not read from remote repository.
+
+Please make sure you have the correct access rights
+and the repository exists.
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$ git push remote origin
+error: src refspec origin does not match any
+error: failed to push some refs to 'remote'
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-staging/exercise (master)
+$
