@@ -1,0 +1,159 @@
+cd basic-stashing
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing (master)
+$ source setup.sh
+Initialized empty Git repository in C:/Users/suraj/Documents/Zemoso Learning/git-katas/basic-stashing/exercise/.git/
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+[master (root-commit) 89c66b9] Initial commit
+ 2 files changed, 1 insertion(+)
+ create mode 100644 file.txt
+ create mode 100644 fix.txt
+warning: LF will be replaced by CRLF in bug.txt.
+The file will have its original line endings in your working directory
+[master bd42a08] add bug.txt
+ 1 file changed, 1 insertion(+)
+ create mode 100644 bug.txt
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ ls
+bug.txt  file.txt  fix.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git status
+On branch master
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   file.txt
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+        modified:   fix.txt
+
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git log
+commit bd42a0810d91b617a3a7f73c2ad0a80e421505f4 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Thu Jan 6 14:02:15 2022 +0530
+
+    add bug.txt
+
+commit 89c66b9e3ba229dc82fbb044b1dec56ff58484cf
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Thu Jan 6 14:02:15 2022 +0530
+
+    Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git stash
+warning: LF will be replaced by CRLF in file.txt.
+The file will have its original line endings in your working directory
+warning: LF will be replaced by CRLF in fix.txt.
+The file will have its original line endings in your working directory
+Saved working directory and index state WIP on master: bd42a08 add bug.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git stash list
+stash@{0}: WIP on master: bd42a08 add bug.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git status
+On branch master
+nothing to commit, working tree clean
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git log
+commit bd42a0810d91b617a3a7f73c2ad0a80e421505f4 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Thu Jan 6 14:02:15 2022 +0530
+
+    add bug.txt
+
+commit 89c66b9e3ba229dc82fbb044b1dec56ff58484cf
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Thu Jan 6 14:02:15 2022 +0530
+
+    Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git add bugs.txt
+fatal: pathspec 'bugs.txt' did not match any files
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git add bug.txt
+warning: LF will be replaced by CRLF in bug.txt.
+The file will have its original line endings in your working directory
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git commit -m "fixed bug.txt"
+[master bc28139] fixed bug.txt
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git stash apply
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+        modified:   fix.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git stash list
+stash@{0}: WIP on master: bd42a08 add bug.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git reset --hard HEAD
+HEAD is now at bc28139 fixed bug.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git stash list
+stash@{0}: WIP on master: bd42a08 add bug.txt
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git stash apply stash@{0}
+On branch master
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   file.txt
+        modified:   fix.txt
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git stash drop
+Dropped refs/stash@{0} (33b02fecb20520af4fd602fbba9e9156f06803f5)
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git stash list
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$ git log
+commit bc281391f76d97acdcd6f02b2dc2ede52019ce21 (HEAD -> master)
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Thu Jan 6 14:04:43 2022 +0530
+
+    fixed bug.txt
+
+commit bd42a0810d91b617a3a7f73c2ad0a80e421505f4
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Thu Jan 6 14:02:15 2022 +0530
+
+    add bug.txt
+
+commit 89c66b9e3ba229dc82fbb044b1dec56ff58484cf
+Author: thesuraj-zemoso <suraj.kumar@zemosolabs.com>
+Date:   Thu Jan 6 14:02:15 2022 +0530
+
+    Initial commit
+
+suraj@DESKTOP-0HOBOQJ MINGW64 ~/Documents/Zemoso Learning/git-katas/basic-stashing/exercise (master)
+$
